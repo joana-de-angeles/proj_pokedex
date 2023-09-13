@@ -1,42 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pokedex</title>
 
-    <!-- Normalize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Normalize CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Font Roboto -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap" rel="stylesheet">
+        <!-- Font Roboto -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap" rel="stylesheet">
+        <link rel="icon" href="assets/favicon.png" type="image/x-icon">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/global.css">
-    <link rel="stylesheet" href="assets/css/pokedex.css">
+        <!-- CSS -->
+        <link rel="stylesheet" href="assets/css/global.css">
+        <link rel="stylesheet" href="assets/css/pokedex.css">
 
-</head>
-<body>
-    
-    <section class="content">
-        <h1>Pokedex</h1>
+    </head>
+    <body>
         
-        <ol id="pokemonList" class="pokemons">
+        
+        <section class="content">
+            <h1>Pokedex</h1>
             
-        </ol>
+            <ol id="pokemonList" class="pokemons">
+                
+            </ol>
 
-        <div class="pagination">
-            <button id="loadMoreButton" type="button">
-                Load More
-            </button>
-        </div>
-    </section>
+            <div class="pagination">
+                <button id="loadMoreButton" type="button">
+                    Load More
+                </button>
+            </div>
+        </section>
 
-    <!-- JS  -->
-    <script src="assets/js/pokemon-model.js"></script>
-    <script src="assets/js/poke-api.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
+        <!--  -->
+
+        <section id="idCard" class=" content bgCard" hidden>
+            <div id="cardHtml" class="bodyCard">
+                <div class="contentCard">
+                    <div id="idClose" class="close">x</div>
+                    <div  class="detailHeadCard">
+                        <div class="titlePlusId">
+                            <h1>Bulbasaur</h1>
+                            <p>#1</p>
+                        </div>
+                        <div class="detachDetail">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/9.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="detailBodyCard">
+                        <div class="typeDetail">
+                            <p>Water</p>
+                        </div>
+                        <div class="tableList">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Species</td>
+                                        <td>Seed</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Height</td>
+                                        <td>70cm</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wheight</td>
+                                        <td>6.9 kg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Abilities</td>
+                                        <td>Overgrow, Chlorophyl</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- JS  -->
+        <script src="assets/js/pokemon-model.js"></script>
+        <script src="assets/js/poke-api.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>

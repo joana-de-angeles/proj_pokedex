@@ -6,6 +6,7 @@
     padding: 0;
     margin: 0;
     list-style: none;
+    cursor: pointer;
 }
 
 
@@ -135,20 +136,156 @@
     cursor: pointer;
 }
 
+/* Cards Pokedex */
+
+.bgCard{
+    top: 0;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    position: absolute;
+    background-color: rgb(0, 0, 0, .7);
+}
+
+.bodyCard{
+    width: 75%;
+    height: auto;
+    left: 50%;
+    top: 120px;
+    transform: translateX(-50%);
+    position: absolute;
+    background-color: #f0f0f0 !important;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.close{
+    align-self: end;
+    font-weight: bold;
+    margin-right: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.close:hover{
+    color: #fa4d87;
+}
+.contentCard{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.detailHeadCard{
+    width: 100%;
+    text-align: center;
+}
+
+.detailHeadCard h1{
+    text-align: left;
+    margin-top: 0;
+    margin-left: 1rem;
+}
+
+.detailHeadCard img{
+    width: 70%;
+}
+
+.titlePlusId{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.titlePlusId p{
+    color: #6b6b6b;
+    margin-right: 2rem;
+}
+
+.detachDetail {
+    width: 17rem;
+    background-color: #fa4d87;
+    border-radius: 48%;
+    margin: 0 auto;
+}
+
+.detailBodyCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.typeDetail{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    color: #fff;
+    width: 4rem;
+    height: 2rem;
+    padding: 1rem 3rem;
+    margin: 1rem 0;
+    background-color: #678fee;
+    border-radius: 2rem;
+    text-align: center;
+    
+}
+
+.typeDetail p{
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.tableList{
+    padding: 20px;
+}
+
+table tbody tr td:first-child {
+    color: #656565;
+    border-right: 40px solid transparent;
+}
+
+
 @media screen and (min-width: 380px) {
     .pokemons{
         grid-template-columns: 1fr 1fr;
     }
+    .bodyCard{
+        width: 80%;
+    }
+    
 }
 
 @media screen and (min-width: 576px) {
     .pokemons{
         grid-template-columns: 1fr 1fr 1fr;
     }
+    .bodyCard{
+        width: 50%;
+    }
 }
 
 @media screen and (min-width: 992px) {
     .pokemons{
         grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .bodyCard{
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    .pokemons{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .bodyCard{
+        width: 35%;
     }
 }
