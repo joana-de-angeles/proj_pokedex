@@ -18,8 +18,12 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
 
     pokemon.abilities = abilities
     pokemon.ability = ability
+    
+    pokemon.weight = pokeDetail.weight
+    pokemon.height = pokeDetail.height
+    pokemon.speciesName = pokeDetail.species.name
 
-
+    // console.log(pokemon)
     return pokemon
 }
 

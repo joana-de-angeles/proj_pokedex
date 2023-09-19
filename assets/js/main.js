@@ -9,6 +9,9 @@ idCard.hidden = true;
 let idClose = document.getElementById('idClose')
 const cardHtml = document.getElementById('cardHtml')
 
+const elementSelected = []
+let pokemonArray = []
+
 function convertPokemonToLi(pokemon) {
     return `
         <li class="pokemon ${pokemon.type}">
@@ -24,7 +27,7 @@ function convertPokemonToLi(pokemon) {
     ` 
 }
 
-function convertPokemonToDiv(pokemon){
+function showDetailsCard(pokemon){
     return `
         <div id="cardHtml" class="bodyCard">
         <div class="contentCard">
@@ -47,7 +50,7 @@ function convertPokemonToDiv(pokemon){
                         <tbody>
                             <tr>
                                 <td>Species</td>
-                                <td>${pokemon.species}</td>
+                                <td>${pokemon.speciesName}</td>
                             </tr>
                             <tr>
                                 <td>Height</td>
@@ -55,11 +58,11 @@ function convertPokemonToDiv(pokemon){
                             </tr>
                             <tr>
                                 <td>Wheight</td>
-                                <td>${pokemon.wheight}</td>
+                                <td>${pokemon.weight}</td>
                             </tr>
                             <tr>
                                 <td>Abilities</td>
-                                ${pokemon.abilities.map((ability) => `<td ${ability}">${ability}</td>`).join()}
+                                
                             </tr>
                         </tbody>
                     </table>
@@ -74,6 +77,8 @@ function convertPokemonToDiv(pokemon){
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit)
     .then((pokemons = []) => {
+        pokemonArray = [...pokemons]
+        console.log(pokemonArray)
         const newHtml = pokemons.map(convertPokemonToLi).join('')
 
         pokemonList.innerHTML += newHtml
@@ -83,12 +88,25 @@ function loadPokemonItens(offset, limit) {
         let cliqueLi = document.getElementsByClassName("pokemon");
         for(let i = 0; i < cliqueLi.length; i++){
             cliqueLi[i].addEventListener('click', () =>{
-                idCard.hidden = false;
+
+            let idSelectedPokemon = document.getElementsByClassName('number')
+            let filterPokemonArray = pokemonArray.filter((item) => item.number == Number(idSelectedPokemon[i].innerHTML.substring(1)))
+            console.log(showDetailsCard(filterPokemonArray))
+          
+            
+            // divSelectedPokemon = document.getElementsByClassName('number')
+
+            
+
+                // idCard.hidden = false;
+                // const htmlDetailsCard = showDetailsCard()
+                // console.log(showDetailsCard())
+                // idCard.innerHTML += htmlDetailsCard
             })
         }
-        idClose.addEventListener('click', () =>{
-            idCard.hidden = true;
-        })
+        // idClose.addEventListener('click', () =>{
+        //     idCard.hidden = true;
+        // })
     })
 }
 
