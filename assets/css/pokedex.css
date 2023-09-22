@@ -106,7 +106,7 @@
     margin: .25rem 0;
     font-size: .625rem;
     border-radius: 1rem;
-    filter: brightness(1.1);
+    filter: brightness(1.2);
     text-align: center;
 }
 
@@ -139,11 +139,18 @@
 /* Cards Pokedex */
 
 .bgCard{
-    top: 0;
+    /* top: 0;
     left: 50%;
-    height: 100%;
+    height: 78vh;
     transform: translateX(-50%);
     position: absolute;
+    background-color: rgb(0, 0, 0, .7); */
+    top: 0;
+    left: 50%;
+    height: 100vh;
+    margin-top: 0;
+    transform: translateX(-50%);
+    position: fixed;
     background-color: rgb(0, 0, 0, .7);
 }
 
@@ -151,9 +158,9 @@
     width: 75%;
     height: auto;
     left: 50%;
-    top: 120px;
+    top: 20%;
     transform: translateX(-50%);
-    position: absolute;
+    position: fixed;
     background-color: #f0f0f0 !important;
     border-radius: 20px;
     z-index: 2;
@@ -199,6 +206,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+    text-transform: capitalize;
 }
 
 .titlePlusId p{
@@ -208,7 +216,6 @@
 
 .detachDetail {
     width: 17rem;
-    background-color: #fa4d87;
     border-radius: 48%;
     margin: 0 auto;
 }
@@ -230,7 +237,6 @@
     height: 2rem;
     padding: 1rem 3rem;
     margin: 1rem 0;
-    background-color: #678fee;
     border-radius: 2rem;
     text-align: center;
     
@@ -245,11 +251,17 @@
 
 .tableList{
     padding: 20px;
+    text-transform: capitalize;
 }
 
 table tbody tr td:first-child {
     color: #656565;
     border-right: 40px solid transparent;
+    
+}
+
+tbody tr td{
+    font-size: .96rem;
 }
 
 
@@ -258,7 +270,8 @@ table tbody tr td:first-child {
         grid-template-columns: 1fr 1fr;
     }
     .bodyCard{
-        width: 80%;
+        width: 88%;
+        top: 15%;
     }
     
 }
@@ -268,7 +281,7 @@ table tbody tr td:first-child {
         grid-template-columns: 1fr 1fr 1fr;
     }
     .bodyCard{
-        width: 50%;
+        width: 66%;
     }
 }
 
@@ -281,11 +294,15 @@ table tbody tr td:first-child {
     }
 }
 
-@media screen and (min-width: 1800px) {
+@media screen and (min-width: 1780px) {
+    .content{
+        max-width: 1150px;
+    }
     .pokemons{
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
     .bodyCard{
-        width: 35%;
+        width: 48%;
+        top: 15%;
     }
 }

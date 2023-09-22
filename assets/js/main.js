@@ -1,16 +1,18 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
-const limit = 10
+const limit = 15
 let offset = 0
 const maxRecords = 151
 
 let idCard = document.getElementById('idCard')
 idCard.hidden = true;
-let idClose = document.getElementById('idClose')
+
 const cardHtml = document.getElementById('cardHtml')
 
 const elementSelected = []
 let pokemonArray = []
+
+
 
 function convertPokemonToLi(pokemon) {
     return `
@@ -31,10 +33,10 @@ function showDetailsCard(pokemon){
     return `
         <div id="cardHtml" class="bodyCard">
         <div class="contentCard">
-            <div id="idClose" class="close">X</div>
+            <div class="close">X</div>
             <div  class="detailHeadCard">
                 <div class="titlePlusId">
-                    <h1>${pokemon.photo}</h1>
+                    <h1>${pokemon.name}</h1>
                     <p>#${pokemon.number}</p>
                 </div>
                 <div class="detachDetail ${pokemon.type}">
@@ -54,15 +56,15 @@ function showDetailsCard(pokemon){
                             </tr>
                             <tr>
                                 <td>Height</td>
-                                <td>${pokemon.height}</td>
+                                <td>${pokemon.height} inch | ${pokemon.height * 2.54} cm </td>
                             </tr>
                             <tr>
-                                <td>Wheight</td>
-                                <td>${pokemon.weight}</td>
+                                <td>Weight</td>
+                                <td>${pokemon.weight} lbs | ${pokemon.weight * 0.45359237.toFixed(1)} kg</td>
                             </tr>
                             <tr>
                                 <td>Abilities</td>
-                                
+                                ${pokemon.abilities.map((ability) => `<td>${ability}</td>`).join('')}
                             </tr>
                         </tbody>
                     </table>
@@ -71,42 +73,57 @@ function showDetailsCard(pokemon){
         </div>
     </div>
     `
+    
 }
 
+function showCard(){
+    
+}
 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit)
     .then((pokemons = []) => {
         pokemonArray = [...pokemons]
-        console.log(pokemonArray)
+        // console.log(pokemonArray)
         const newHtml = pokemons.map(convertPokemonToLi).join('')
-
+        
         pokemonList.innerHTML += newHtml
     })
     .then(() => {
+        
         // Abertura e fechamento do modal
         let cliqueLi = document.getElementsByClassName("pokemon");
+
         for(let i = 0; i < cliqueLi.length; i++){
             cliqueLi[i].addEventListener('click', () =>{
-
-            let idSelectedPokemon = document.getElementsByClassName('number')
-            let filterPokemonArray = pokemonArray.filter((item) => item.number == Number(idSelectedPokemon[i].innerHTML.substring(1)))
-            console.log(showDetailsCard(filterPokemonArray))
-          
             
-            // divSelectedPokemon = document.getElementsByClassName('number')
+                let idSelectedPokemon = document.getElementsByClassName('number')
+                
+                let filterPokemonArray = pokemonArray.filter((item) => item.number == idSelectedPokemon[i].innerHTML.substring(1))
+                // let pokemonsCards = filterPokemonArray[0]
+                
+
+                const newHtmlCard = filterPokemonArray.map(showDetailsCard).join('');
+
+                idCard.hidden = false;
+
+                // const newHtmlCard = showDetailsCard(pokemonsCards)
+
+              
+                idCard.innerHTML += newHtmlCard
+                
+                let buttonClose = document.getElementsByClassName('close')
 
             
-
-                // idCard.hidden = false;
-                // const htmlDetailsCard = showDetailsCard()
-                // console.log(showDetailsCard())
-                // idCard.innerHTML += htmlDetailsCard
+                if(buttonClose){
+                    for(let i = 0; i < buttonClose.length; i++){
+                        buttonClose[i].addEventListener('click', () =>{
+                            idCard.hidden = true;
+                        })
+                    }
+                }
             })
         }
-        // idClose.addEventListener('click', () =>{
-        //     idCard.hidden = true;
-        // })
     })
 }
 
@@ -126,6 +143,12 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, limit)
     }  
 })
+
+
+
+
+
+
 
 
 
