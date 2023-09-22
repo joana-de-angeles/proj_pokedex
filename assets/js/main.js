@@ -7,10 +7,10 @@ const maxRecords = 151
 let idCard = document.getElementById('idCard')
 idCard.hidden = true;
 
-const cardHtml = document.getElementById('cardHtml')
-
 const elementSelected = []
 let pokemonArray = []
+
+
 
 
 
@@ -109,8 +109,9 @@ function loadPokemonItens(offset, limit) {
 
                 // const newHtmlCard = showDetailsCard(pokemonsCards)
 
-              
                 idCard.innerHTML += newHtmlCard
+
+                const cardHtml = document.getElementById('cardHtml')
                 
                 let buttonClose = document.getElementsByClassName('close')
 
@@ -119,6 +120,8 @@ function loadPokemonItens(offset, limit) {
                     for(let i = 0; i < buttonClose.length; i++){
                         buttonClose[i].addEventListener('click', () =>{
                             idCard.hidden = true;
+                            
+                            cardHtml.remove();
                         })
                     }
                 }
