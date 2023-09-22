@@ -9,12 +9,15 @@ Tecnologias Utilizadas
 
 ![Demonstração](../proj_pokedex/assets/imgs/pokedex.gif)
 
-## Sobre a Pokédex
-:smile:
+<br>
+
+## 👾 Sobre a Pokédex
+
 A Pokédex é uma enciclopédia eletrônica fictícia existente no universo Pokémon. Ela contém informações minuciosas sobre cada espécie de Pokémon conhecida. Minha versão da Pokédex traz essas informações para o mundo real, permitindo que os treinadores de Pokémon acessem dados sobre seus Pokémon favoritos.
 
+<br>
 
-## Recursos da Pokédex
+## 💡 Recursos da Pokédex
 Aqui estão alguns dos recursos e funcionalidades da minha Pokédex:
 
 
@@ -26,7 +29,9 @@ Aqui estão alguns dos recursos e funcionalidades da minha Pokédex:
 
 - **Tipo de Pokémon**: Saiba quais tipos de Pokémon são eficazes contra outros em batalhas.
 
-## Tecnologia e Implementação
+<br>
+
+## 🕹️ Tecnologia e Implementação
 Neste projeto, utilizei as seguintes técnicas e tecnologias em JavaScript:
 
 - **Requisições Assíncronas:** Para obter dados dinâmicos da API e manter a aplicação responsiva, empreguei requisições assíncronas. 
