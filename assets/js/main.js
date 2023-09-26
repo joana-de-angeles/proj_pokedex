@@ -9,6 +9,7 @@ idCard.hidden = true;
 
 const elementSelected = []
 let pokemonArray = []
+let cacheArray = []
 
 
 
@@ -84,8 +85,12 @@ function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit)
     .then((pokemons = []) => {
         pokemonArray = [...pokemons]
-        // console.log(pokemonArray)
+        
+        cacheArray.push(...pokemons)
+        
         const newHtml = pokemons.map(convertPokemonToLi).join('')
+
+        
         
         pokemonList.innerHTML += newHtml
     })
@@ -99,16 +104,13 @@ function loadPokemonItens(offset, limit) {
             
                 let idSelectedPokemon = document.getElementsByClassName('number')
                 
-                let filterPokemonArray = pokemonArray.filter((item) => item.number == idSelectedPokemon[i].innerHTML.substring(1))
-                // let pokemonsCards = filterPokemonArray[0]
-                
+                let filterPokemonArray = cacheArray.filter((item) => item.number == idSelectedPokemon[i].innerHTML.substring(1))
 
                 const newHtmlCard = filterPokemonArray.map(showDetailsCard).join('');
 
                 idCard.hidden = false;
 
-                // const newHtmlCard = showDetailsCard(pokemonsCards)
-
+            
                 idCard.innerHTML += newHtmlCard
 
                 const cardHtml = document.getElementById('cardHtml')

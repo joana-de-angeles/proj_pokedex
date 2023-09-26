@@ -1,7 +1,7 @@
 
 #  Pokédex em JavaScript com a API PokeAPI
 
-Minha versão do Pokédex é uma aplicação desenvolvida em JavaScript que proporciona uma imersão no universo dos Pokémon. Esta Pokédex foi concebida usando a API PokeAPI (https://pokeapi.co/), que disponibiliza uma extensa base de dados sobre os Pokémon, incluindo detalhes sobre espécies, tipos, habilidades, movimentos e muito mais.
+Minha versão do Pokédex é uma aplicação desenvolvida em JavaScript que proporciona uma imersão no universo dos Pokémon. Esta Pokédex foi concebida usando a API PokeAPI (https://pokeapi.co/), que disponibiliza uma extensa base de dados sobre os Pokémon, incluindo detalhes sobre espécies, tipos, habilidades e muito mais.
 
 Tecnologias Utilizadas
 
